@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router';
-
+import logo from '../../assets/lottie/logo.png'
 const Navbar = () => {
 
 const links = <>
@@ -23,7 +23,9 @@ const links = <>
                            {links}
                         </ul>
                     </div>
-                    <a className="text-xl">daisyUI</a>
+                    <div>
+                        <img className='w-20' src={logo} alt="" />
+                    </div>
                 </div>
                 <div className="navbar-center hidden md:flex ">
                     <ul className="menu menu-horizontal gap-8 px-1">
@@ -31,7 +33,7 @@ const links = <>
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-1">
-                   <Link> <a className="text-blue-400 font-bold">Login</a></Link>
+                   <Link to={'/login'}> <a className="text-blue-400 font-bold">Login</a></Link>
                     <p className='text-blue-500'>/</p>
                     <Link to={'/register'}><a className="text-blue-400  font-bold">Register</a></Link>
                 </div>
