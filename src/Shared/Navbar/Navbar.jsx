@@ -1,41 +1,78 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router';
+import React, { use } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router';
 import logo from '../../assets/lottie/logo.png'
+import { AuthContext } from '../../Context/AuthContext/AuthContext';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase/firebase';
+import { toast, ToastContainer } from 'react-toastify';
+import { div } from 'framer-motion/client';
 const Navbar = () => {
 
-const links = <>
-<NavLink><li>Home</li></NavLink>
-<NavLink><li> Courses</li></NavLink>
-<NavLink><li>Add Course</li></NavLink>
+    const { user, loading } = use(AuthContext)
+    const navigate = useNavigate()
+    const links = <>
+        <NavLink to={'/'}><li>Home</li></NavLink>
+        <NavLink><li> Courses</li></NavLink>
+        <NavLink to={'/addCourse'}><li>Add Course</li></NavLink>
 
-   </> 
+    </>
+
+    if (loading) {
+        return <h2></h2>
+    }
+
+
+    const signOutUser = () => {
+        signOut(auth)
+            .then(() => {
+                toast.success('Logout successful')
+                navigate('/')
+            })
+            .catch(() => { })
+    }
+
     return (
         <div>
+            <ToastContainer></ToastContainer>
             <div className="navbar bg-base-100 shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                            <img className='w-16' src={logo} alt="" />
                         </div>
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                           {links}
+                            {links}
                         </ul>
                     </div>
-                    <div>
+                    <div className='hidden md:flex'>
                         <img className='w-20' src={logo} alt="" />
                     </div>
                 </div>
                 <div className="navbar-center hidden md:flex ">
                     <ul className="menu menu-horizontal gap-8 px-1">
-                       {links}
+                        {links}
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-1">
-                   <Link to={'/login'}> <a className="text-blue-400 font-bold">Login</a></Link>
-                    <p className='text-blue-500'>/</p>
-                    <Link to={'/register'}><a className="text-blue-400  font-bold">Register</a></Link>
+
+
+                    {user ?
+                        <div className='flex items-center gap-3'>
+                            <div>
+                                <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />
+                            </div>
+                            <button onClick={signOutUser} className='text-emerald-400  font-bold'>Logout</button>
+                        </div>
+                        :
+
+                        <div className='flex'>
+                            <Link to={'/login'}> <p className="text-emerald-400 font-bold">Login</p></Link>
+                            <p className='text-emerald-500'>/</p>
+                            <Link to={'/register'}><p className="text-emerald-400  font-bold">Register</p></Link>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
