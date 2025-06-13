@@ -5,6 +5,7 @@ import Lottie from 'lottie-react';
 import { AuthContext } from '../../Context/AuthContext/AuthContext';
 import { Link, useNavigate } from 'react-router';
 import { toast, ToastContainer } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
@@ -21,8 +22,14 @@ const Login = () => {
 
         signInUser(email, password)
             .then(() => {
-                toast.success('Login successful')
-                navigate('/')
+                Swal.fire({
+                    title: "Login successful",
+                    icon: "success",
+                    draggable: true
+                });
+                setTimeout(() => {
+                    navigate('/')
+                }, 500);
             })
             .catch(() => {
 
@@ -34,8 +41,14 @@ const Login = () => {
     const handleGoogle = () => {
         logInByGoogle()
             .then(() => {
-                toast.success('Login successful')
-                navigate('/')
+                Swal.fire({
+                    title: "Login successful",
+                    icon: "success",
+                    draggable: true
+                });
+                setTimeout(() => {
+                    navigate('/')
+                }, 500);
             })
             .catch(() => { })
     }

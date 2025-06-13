@@ -2,12 +2,13 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import Navbar from '../Shared/Navbar/Navbar';
 import Footer from '../Shared/Footer/Footer';
+import { ToastContainer } from 'react-toastify';
 
 
 
 const layout = () => {
     return (
-        <div className='space-y-10'>
+        <div className=''>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

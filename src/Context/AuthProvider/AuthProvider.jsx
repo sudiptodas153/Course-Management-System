@@ -23,7 +23,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const profileUpdate = (userDetails) => {
-        setLoading(true)
+        
         return updateProfile(auth.currentUser, userDetails)
     }
 
@@ -54,6 +54,7 @@ const AuthProvider = ({ children }) => {
         profileUpdate,
         signInUser,
         loading,
+        setLoading,
         setUser,
         logInByFacebook,
         logInByGoogle,

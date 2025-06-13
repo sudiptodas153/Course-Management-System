@@ -5,12 +5,20 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { AuthContext } from '../../Context/AuthContext/AuthContext';
 import { Link, useNavigate } from 'react-router';
 import { toast, ToastContainer } from 'react-toastify';
+import { IoInformationCircleOutline } from 'react-icons/io5';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const navigate = useNavigate();
-    const { createUser, profileUpdate, setUser, user, logInByFacebook, logInByGoogle, } = use(AuthContext);
+    const { createUser, setLoading, profileUpdate, setUser, user, logInByFacebook, logInByGoogle, } = use(AuthContext);
     const [eye, setEye] = useState(false);
     const [eye2, setEye2] = useState(false);
+    const [passCheck, setPassCheck] = useState(false)
+    const [passCheck2, setPassCheck2] = useState(false)
+    const [passCheck3, setPassCheck3] = useState(false)
+    const [passCheck4, setPassCheck4] = useState(false)
+    const [passCheck5, setPassCheck5] = useState(false)
+   
 
     // registration by user information
 
@@ -23,24 +31,72 @@ const Register = () => {
         const confirmPassword = e.target.confirmPassword.value;
 
 
-        if (password === confirmPassword) {
-            createUser(email, password)
-                .then(() => {
+        const pass1 = /^.{8,}$/
+        const pass2 = /.*[A-Z].*/
+        const pass3 = /.*[a-z].*/
+        const pass4 = /.*[0-9].*/
 
-                    setUser({ ...user, displayName: name, photoURL: photo })
-                    profileUpdate({ displayName: name, photoURL: photo })
-                    toast.success('Registration successful')
-                   setTimeout(() => {
-                     navigate('/')
-                   }, 1000);
+        setPassCheck(false)
+        setPassCheck2(false)
+        setPassCheck3(false)
+        setPassCheck4(false)
+        setPassCheck5(false)
 
-                })
-                .catch(() => { })
+        if (!pass1.test(password)) {
+            setPassCheck(true)
+        }
+        if (!pass2.test(password)) {
+            setPassCheck2(true)
+        }
+        if (!pass3.test(password)) {
+            setPassCheck3(true)
+        }
+        if (!pass4.test(password)) {
+            setPassCheck4(true)
+        }
+        if (!/[^A-Za-z0-9]/.test(password)) {
+           
+            setPassCheck5(true)
+        }
 
+
+        if (confirmPassword) {
+            if (password === confirmPassword) {
+                createUser(email, password)
+                    .then(() => {
+
+                        setUser({ ...user, displayName: name, photoURL: photo })
+                        profileUpdate({ displayName: name, photoURL: photo })
+                        setLoading(false)
+                        Swal.fire({
+                            title: "Registration successful",
+                            icon: "success",
+                            draggable: true
+                        });
+                        setTimeout(() => {
+                            navigate('/')
+                        }, 500);
+
+                    })
+                    .catch(() => {
+
+                        Swal.fire({
+                            title: "This email already registered here",
+                            icon: "error",
+                            draggable: true
+                        });
+                    })
+
+            }
+            else {
+                toast.error(`Password don't match`)
+            }
         }
         else {
-            toast.error(`Password don't match`)
+            toast.error('Fill up confirm password')
         }
+
+
     }
 
 
@@ -49,10 +105,14 @@ const Register = () => {
     const handleGoogle = () => {
         logInByGoogle()
             .then(() => {
-                toast.success('Login successful')
+                Swal.fire({
+                    title: "Login successful",
+                    icon: "success",
+                    draggable: true
+                });
                 setTimeout(() => {
                     navigate('/')
-                }, 1000);
+                }, 500);
             })
             .catch(() => { })
     }
@@ -90,25 +150,49 @@ const Register = () => {
                                 <form onSubmit={handleRegister}>
                                     <fieldset className="fieldset">
                                         <legend className="fieldset-legend">Your Name:</legend>
-                                        <input type="text" className="input md:w-72" name="name" placeholder="Type your name" />
+                                        <input type="text" className="input md:w-72" name="name" required placeholder="Type your name" />
                                     </fieldset>
                                     <fieldset className="fieldset">
                                         <legend className="fieldset-legend">Your PhotoURL</legend>
-                                        <input type="text" className="input md:w-72" name="photo" placeholder="https:/example.jpg/6fg5e" />
+                                        <input type="text" className="input md:w-72" name="photo" required placeholder="https:/example.jpg/6fg5e" />
                                     </fieldset>
                                     <fieldset className="fieldset">
                                         <legend className="fieldset-legend">Your Email</legend>
-                                        <input type="text" className="input md:w-72" name="email" placeholder="Type your email" />
+                                        <input type="text" className="input md:w-72" name="email" required placeholder="Type your email" />
                                     </fieldset>
                                     <fieldset className="relative fieldset">
                                         <legend className="fieldset-legend">Password</legend>
-                                        <input type={`${eye ? 'text' : 'password'}`} className="input md:w-72 " name="password" placeholder="Set your password" />
+                                        <input type={`${eye ? 'text' : 'password'}`} className="input md:w-72 " name="password" required placeholder="Set your password" />
                                         <div onClick={() => setEye(!eye)} className='cursor-pointer absolute mt-4 ml-64'>
                                             {
                                                 eye ? <AiOutlineEyeInvisible size={20} /> : <AiOutlineEye size={20} />
                                             }
 
                                         </div>
+
+                                        <div>
+                                            {passCheck && <p className='text-xs text-red-500'>Password must be at-least 8 character.</p>}
+                                            {passCheck2 && <p className='text-xs text-red-500'>Password must have 1 uppercase.</p>}
+                                            {passCheck3 && <p className='text-xs text-red-500'>Password must have 1 lowercase.</p>}
+                                            {passCheck4 && <p className='text-xs text-red-500'>Password must have 1 special character.</p>}
+                                            {passCheck5 && <p className='text-xs text-red-500'>Password must have 1 number.</p>}
+                                        </div>
+
+                                        <div className="collapse  bg-emerald-300 border-base-300 border">
+                                            <input type="checkbox" />
+                                            <div className="flex text-sm items-center justify-between collapse-title text-white">Password Validation <IoInformationCircleOutline size={25} /></div>
+                                            <div className="collapse-content text-sm">
+                                                <ul className='list-disc text-white ml-4'>
+                                                    <li>Password must be at-least 8 character.</li>
+                                                    <li>Password must have 1 uppercase.</li>
+                                                    <li>Password must have 1 lowercase.</li>
+                                                    <li>Password must have 1 special character.</li>
+                                                    <li>Password must have 1 number.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+
 
                                     </fieldset>
                                     <fieldset className="fieldset">

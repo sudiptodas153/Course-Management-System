@@ -5,7 +5,8 @@ import { AuthContext } from '../../Context/AuthContext/AuthContext';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
 import { toast, ToastContainer } from 'react-toastify';
-import { div } from 'framer-motion/client';
+import './Navbar.css'
+// import { div } from 'framer-motion/client';
 const Navbar = () => {
 
     const { user, loading } = use(AuthContext)
@@ -17,7 +18,7 @@ const Navbar = () => {
 
     </>
 
-    if (loading) {
+    if(loading) {
         return <h2></h2>
     }
 
@@ -32,8 +33,8 @@ const Navbar = () => {
     }
 
     return (
-        <div>
-            <ToastContainer></ToastContainer>
+        <div className=''>
+            
             <div className="navbar bg-base-100 shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -47,7 +48,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className='hidden md:flex'>
-                        <img className='w-20' src={logo} alt="" />
+                        <img className='w-20 ' src={logo} alt="" />
                     </div>
                 </div>
                 <div className="navbar-center hidden md:flex ">
@@ -67,7 +68,7 @@ const Navbar = () => {
                         </div>
                         :
 
-                        <div className='flex'>
+                        <div className='flex gap-1'>
                             <Link to={'/login'}> <p className="text-emerald-400 font-bold">Login</p></Link>
                             <p className='text-emerald-500'>/</p>
                             <Link to={'/register'}><p className="text-emerald-400  font-bold">Register</p></Link>
