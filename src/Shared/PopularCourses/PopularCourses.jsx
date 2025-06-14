@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaRegCalendarAlt } from 'react-icons/fa';
+import { FaUserGroup } from 'react-icons/fa6';
 import { Link } from 'react-router';
 
 const PopularCourses = () => {
@@ -29,7 +30,7 @@ const PopularCourses = () => {
                                 <div className="mt-3">
                                     <h2 className="text-xl md:text-2xl font-semibold">{course.title.length === 25 ? course.title : course.title.slice(0, 25) + '...'}</h2>
                                     <div className='flex justify-between my-4 text-gray-600'>
-                                        <p>Enrolled: {course.enrolledCount}</p>
+                                        <p className='flex items-center font-semibold gap-1'>Enrolled:  <span className='flex items-center font-bold gap-1'><FaUserGroup />{course.enrolledCount}</span></p>
                                         <p className='flex items-center gap-1'><FaRegCalendarAlt /> {course.createdAt.split("T")[0]}</p>
                                     </div>
 

@@ -15,6 +15,9 @@ const Navbar = () => {
         <NavLink to={'/'}><li>Home</li></NavLink>
         <NavLink to={'/course'}><li> Courses</li></NavLink>
         <NavLink to={'/addCourse'}><li>Add Course</li></NavLink>
+        <NavLink to={'/Manage-courses'}><li>Manage Courses</li></NavLink>
+        <NavLink to={'/My-enrolled-courses'}><li>My Enrolled Courses</li></NavLink>
+       
 
     </>
 

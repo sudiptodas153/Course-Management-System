@@ -23,7 +23,7 @@ const Course = () => {
                                     <h2 className="text-xl md:text-2xl font-semibold">{course.title.length === 25 ? course.title : course.title.slice(0, 25) + '...'}</h2>
                                     <div className='flex justify-between text-gray-500 my-4'>
                                         <p className='flex items-center gap-1'><span className=' text-gray-700'>Instructor:</span> {course.instructor}</p>
-                                        <p><span className='text-gray-700'>Available Seat:</span> {course.totalSeats}</p>
+                                        <p><span className='text-gray-700'>Total Seat:</span> {course.totalSeats}</p>
                                     </div>
 
                                     <div className=" justify-end">

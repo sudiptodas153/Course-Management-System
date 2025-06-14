@@ -6,6 +6,10 @@ import Login from "../Pages/Login/Login";
 import AddCourse from "../Pages/AddCourse/AddCourse";
 import Course from "../Pages/Course/Course";
 import Details from "../Pages/Details/Details";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import ManageCourse from "../Pages/ManageCourse/ManageCourse";
+import MyEnroll from "../Pages/MyEnroll/MyEnroll";
+import ManageCourseWithEmail from "../Shared/ManageCourseWithEmail/ManageCourseWithEmail";
 
 
 
@@ -14,6 +18,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: layout,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -23,6 +28,15 @@ export const router = createBrowserRouter([
       {
         path: 'addCourse',
         Component: AddCourse
+      },
+      
+      {
+        path:'Manage-courses',
+        Component: ManageCourse
+      },
+      {
+        path:'My-enrolled-courses',
+        Component: MyEnroll
       },
       {
         path: 'course',
