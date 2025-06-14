@@ -13,7 +13,7 @@ const Navbar = () => {
     const navigate = useNavigate()
     const links = <>
         <NavLink to={'/'}><li>Home</li></NavLink>
-        <NavLink><li> Courses</li></NavLink>
+        <NavLink to={'/course'}><li> Courses</li></NavLink>
         <NavLink to={'/addCourse'}><li>Add Course</li></NavLink>
 
     </>
@@ -52,7 +52,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-center hidden md:flex ">
-                    <ul className="menu menu-horizontal gap-8 px-1">
+                    <ul className="menu menu-horizontal font-bold gap-8 px-1">
                         {links}
                     </ul>
                 </div>
@@ -64,7 +64,7 @@ const Navbar = () => {
                             <div>
                                 <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />
                             </div>
-                            <button onClick={signOutUser} className='text-emerald-400  font-bold'>Logout</button>
+                            <button onClick={signOutUser} className='text-emerald-400  font-bold border btn border-emerald-400'>Logout</button>
                         </div>
                         :
 

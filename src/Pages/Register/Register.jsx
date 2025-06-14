@@ -18,7 +18,6 @@ const Register = () => {
     const [passCheck3, setPassCheck3] = useState(false)
     const [passCheck4, setPassCheck4] = useState(false)
     const [passCheck5, setPassCheck5] = useState(false)
-   
 
     // registration by user information
 
@@ -35,6 +34,7 @@ const Register = () => {
         const pass2 = /.*[A-Z].*/
         const pass3 = /.*[a-z].*/
         const pass4 = /.*[0-9].*/
+        const pass5 = /[!@#$%^&*(),?":{}|<>]/
 
         setPassCheck(false)
         setPassCheck2(false)
@@ -54,7 +54,7 @@ const Register = () => {
         if (!pass4.test(password)) {
             setPassCheck4(true)
         }
-        if (!/[^A-Za-z0-9]/.test(password)) {
+        if (! pass5.test(password)) {
            
             setPassCheck5(true)
         }
@@ -174,8 +174,8 @@ const Register = () => {
                                             {passCheck && <p className='text-xs text-red-500'>Password must be at-least 8 character.</p>}
                                             {passCheck2 && <p className='text-xs text-red-500'>Password must have 1 uppercase.</p>}
                                             {passCheck3 && <p className='text-xs text-red-500'>Password must have 1 lowercase.</p>}
-                                            {passCheck4 && <p className='text-xs text-red-500'>Password must have 1 special character.</p>}
-                                            {passCheck5 && <p className='text-xs text-red-500'>Password must have 1 number.</p>}
+                                            {passCheck4 && <p className='text-xs text-red-500'>Password must have 1 number.</p>}
+                                            {passCheck5 && <p className='text-xs text-red-500'>Password must have 1 special character.</p>}
                                         </div>
 
                                         <div className="collapse  bg-emerald-300 border-base-300 border">

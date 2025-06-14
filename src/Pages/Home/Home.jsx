@@ -9,7 +9,7 @@ const Home = () => {
 
 
     return (
-        <div className='container mx-auto'>
+        <div className=''>
             <Banner></Banner>
             <Courses data={data}></Courses>
             <PopularCourses data={data}></PopularCourses>

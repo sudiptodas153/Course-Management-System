@@ -15,7 +15,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="slider-container container px-1 mx-auto">
+    <div className="slider-container mt-9 px-1">
 
       <Slider {...settings}>
         <div className="h-60 md:h-[420px] md:w-full text-center custom  bg-black bg-opacity-100">

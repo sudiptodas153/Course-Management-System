@@ -2,10 +2,10 @@ import React from 'react';
 
 const AddCourse = () => {
     return (
-        <div className='container mx-auto px-2'>
+        <div className='container mx-auto my-10 px-2'>
 
-            <form className='border border-gray-500 rounded-lg p-10'>
-                <h2 className='text-center font-bold text-3xl mb-5'>Course Add</h2>
+            <form className='border border-gray-200 rounded-lg p-10'>
+                <h2 className='text-center font-bold text-3xl mb-5'>Add Course</h2>
                 <fieldset className="fieldset">
                     <legend className="fieldset-legend">Course Name</legend>
                     <input type="text" className="input w-full border border-gray-400" placeholder="Type course name" />

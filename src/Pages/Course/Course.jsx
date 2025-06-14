@@ -1,25 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FaRegCalendarAlt } from 'react-icons/fa';
-import { Link } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
-const PopularCourses = () => {
+const Course = () => {
+    const data = useLoaderData();
 
-    const [popularData, setPopularData] = useState([])
-
-    useEffect(() => {
-        fetch('http://localhost:3000/top-courses')
-            .then(res => res.json())
-            .then(data => setPopularData(data))
-    }, [])
 
     return (
-        <div className='max-w-11/12 mx-auto  mt-20'>
-            <h2 className='text-center text-3xl md:text-4xl font-bold'>Popular Courses</h2>
-            <div className='grid grid-cols-1 md:mt-8 md:grid-cols-3 md:gap-5'>
+        <div className='max-w-11/12 mx-auto mt-10 '>
+            <div className='grid grid-cols-1 mt-5 md:mt-8 md:grid-cols-3 md:gap-5'>
                 {
-                    popularData.map(course =>
+                    data.map(course =>
                         <div key={course._id}>
-                            <div className="p-5 mt-5 border border-gray-100 rounded-lg md:w-96 shadow-sm">
+                            <div className="p-5 border mt-5 border-gray-100 rounded-lg MD:w-96 shadow-sm">
 
                                 <img
                                     className='md:w-96 md:h-52 rounded-lg'
@@ -28,9 +21,9 @@ const PopularCourses = () => {
 
                                 <div className="mt-3">
                                     <h2 className="text-xl md:text-2xl font-semibold">{course.title.length === 25 ? course.title : course.title.slice(0, 25) + '...'}</h2>
-                                    <div className='flex justify-between my-4 text-gray-600'>
-                                        <p>Enrolled: {course.enrolledCount}</p>
-                                        <p className='flex items-center gap-1'><FaRegCalendarAlt /> {course.createdAt.split("T")[0]}</p>
+                                    <div className='flex justify-between text-gray-500 my-4'>
+                                        <p className='flex items-center gap-1'><span className=' text-gray-700'>Instructor:</span> {course.instructor}</p>
+                                        <p><span className='text-gray-700'>Available Seat:</span> {course.totalSeats}</p>
                                     </div>
 
                                     <div className=" justify-end">
@@ -47,4 +40,4 @@ const PopularCourses = () => {
     );
 };
 
-export default PopularCourses;
+export default Course;
