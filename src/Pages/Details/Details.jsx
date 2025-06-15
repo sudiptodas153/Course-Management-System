@@ -7,6 +7,7 @@ import { AuthContext } from '../../Context/AuthContext/AuthContext';
 import { Armchair } from 'lucide-react';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
+import { BiSolidError } from 'react-icons/bi';
 
 const Details = () => {
     const { user } = use(AuthContext)
@@ -44,12 +45,6 @@ const Details = () => {
 
     }
 
-
-
-
-
-
-
     const enrollHandle = () => {
 
         if (totalSeats === enrolledCount) {
@@ -70,10 +65,29 @@ const Details = () => {
         }
 
         else {
-
+            const name = user.displayName;
             const email = user.email;
+            const image = user.photoURL;
+            const courseName = title;
             const id = _id;
-            const enrollUser = { id, email };
+            const formDate = date => {
+                const dates = { day: '2-digit', month: 'short', year: 'numeric' }
+                return date.toLocaleDateString('en-US', dates);
+            }
+
+            const today = new Date();
+            const formattedDate = formDate(today);
+            const date = formattedDate
+
+            const times = new Date();
+            const timeCount = {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+            };
+            const formattedTime = times.toLocaleTimeString('en-US', timeCount)
+            const time = formattedTime
+            const enrollUser = { id, name, email, image, courseName, date, time };
             fetch('http://localhost:3000/enrolled', {
                 method: "POST",
                 headers: {
@@ -109,18 +123,11 @@ const Details = () => {
 
 
                 if (data.deletedCount) {
-                    // Swal.fire({
-                    //     title: "Deleted!",
-                    //     text: "Delete Successful",
-                    //     icon: "success"
-                    // });
-
-                    toast.success('Delete Successful')
-
+                    toast.error('Enroll Cancel')
 
                 }
                 EnrollUser()
-                setCount(count - 1)
+               setCount(count - 1)
                 setCountSeat(countSeat + 1)
             })
     }
@@ -160,7 +167,7 @@ const Details = () => {
                         :
                         !user ?
 
-                            <div className="tooltip w-full" data-tip="You need to login to enroll the course">
+                            <div className=" w-full" >
                                 <button
                                     onClick={enrollHandle}
                                     disabled
@@ -184,7 +191,9 @@ const Details = () => {
 
                 }
 
-
+                {
+                    !user && <p className='text-red-700 flex items-center gap-1'><BiSolidError /> You need to login to enroll the course</p>
+                }
 
             </div>
         </div>

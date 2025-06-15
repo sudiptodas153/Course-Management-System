@@ -11,6 +11,15 @@ const AddCourse = () => {
         const courseData = Object.fromEntries(formData.entries());
         courseData.addedBy = user.email
         courseData.addedByName = user.displayName
+         const formDate = date => {
+                const dates = { day: '2-digit', month: 'short', year: 'numeric' }
+                return date.toLocaleDateString('en-US', dates);
+            }
+
+            const today = new Date();
+            const formattedDate = formDate(today);
+           
+            courseData.createdAt = formattedDate
         // console.log(courseData)
         fetch('http://localhost:3000/course', {
             method: "POST",
