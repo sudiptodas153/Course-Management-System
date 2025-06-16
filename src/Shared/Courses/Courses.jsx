@@ -13,23 +13,40 @@ const Courses = ({ data }) => {
                 {
                     data.map(course =>
                         <div key={course._id}>
-                            <div className="p-5 border mt-5 border-gray-100 rounded-lg MD:w-96 shadow-sm">
 
-                                <img
+                            <div className="p-5 bg-gradient-to-b from-[#f50505] to-[#ee0707]  mt-5 rounded-lg md:w-96 h-60 md:h-96 shadow-sm"
+                                style={{
+                                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${course.image})`,
+
+                                    backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'
+                                }}
+                            >
+
+                                {/* <img
                                     className='md:w-96 md:h-52 rounded-lg'
                                     src={course.image}
-                                    alt="" />
+                                    alt="" /> */}
 
-                                <div className="mt-3">
-                                    <h2 className="text-xl md:text-2xl font-semibold">{course.title.length === 25 ? course.title : course.title.slice(0, 25) + '...'}</h2>
-                                    <div className='flex justify-between text-gray-600 my-4'>
+                                <div className="mt-16 md:mt-52">
+                                    <h2 className="text-xl mb-5 text-white md:text-2xl font-semibold">{course.title.length === 29 ? course.title : course.title.slice(0, 29) + '...'}</h2>
+
+                                    {/* <div className='flex justify-between text-gray-600 my-4'>
                                         <p className='flex  items-center gap-1'><IoTimeOutline /> {course.duration} Days</p>
                                         <p className='flex items-center gap-1'><FaRegCalendarAlt /> {course.createdAt.split("T")[0]}</p>
+                                    </div> */}
+
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <span className="flex gap-1 items-center bg-orange-500 text-white text-sm px-3 py-1 rounded-full">
+                                            <IoTimeOutline /> {course.duration} Days
+                                        </span>
+                                        <span className="flex gap-1 items-center bg-blue-600 text-white text-sm px-3 py-1 rounded-full">
+                                            <FaRegCalendarAlt /> {course.createdAt.split("T")[0]}
+                                        </span>
                                     </div>
 
                                     <div className=" justify-end">
                                         <Link to={`/courses/${course._id}`}>
-                                            <button className="btn text-white text-lg font-semibold bg-emerald-300 w-full">Details</button>
+                                            <button className="btn w-full border-none py-3 rounded-full bg-gradient-to-r from-emerald-400 to-emerald-600 text-white font-semibold hover:scale-105 transition transform">Details</button>
                                         </Link>
                                     </div>
                                 </div>
@@ -37,7 +54,7 @@ const Courses = ({ data }) => {
                         </div>)
                 }
             </div>
-        </div>
+        </div >
     );
 };
 

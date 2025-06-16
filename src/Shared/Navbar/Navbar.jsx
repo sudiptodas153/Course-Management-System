@@ -19,7 +19,7 @@ const Navbar = () => {
         <NavLink to={'/addCourse'}><li>Add Course</li></NavLink>
         <NavLink to={'/Manage-courses'}><li>Manage Courses</li></NavLink>
         <NavLink to={'/My-enrolled-courses'}><li>My Enrolled Courses</li></NavLink>
-        {/* <NavLink to={'/My-enrolled-courses'}><li>My Enrolled Courses</li></NavLink> */}
+        <NavLink to={'/community'}><li>Community</li></NavLink>
 
 
     </>

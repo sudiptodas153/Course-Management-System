@@ -13,6 +13,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AddCourse from "../Pages/AddCourse/AddCourse";
 import Loader from "../Shared/Loader/Loader";
 import EditCourse from "../Pages/EditCourse/EditCourse";
+import Community from "../Pages/Community/Community";
 
 
 
@@ -34,16 +35,21 @@ export const router = createBrowserRouter([
         hydrateFallbackElement: <Loader></Loader>,
         element: <PrivateRoute><AddCourse></AddCourse></PrivateRoute>
       },
-      
+
       {
-        path:'Manage-courses',
+        path: 'Manage-courses',
         hydrateFallbackElement: <Loader></Loader>,
-       element: <PrivateRoute><ManageCourse></ManageCourse></PrivateRoute>
+        element: <PrivateRoute><ManageCourse></ManageCourse></PrivateRoute>
       },
       {
-        path:'My-enrolled-courses',
+        path: 'My-enrolled-courses',
         hydrateFallbackElement: <Loader></Loader>,
-       element: <PrivateRoute><MyEnroll></MyEnroll></PrivateRoute>
+        element: <PrivateRoute><MyEnroll></MyEnroll></PrivateRoute>
+      },
+      {
+        path: 'community',
+        hydrateFallbackElement: <Loader></Loader>,
+        Component: Community
       },
       {
         path: 'course',
@@ -53,13 +59,13 @@ export const router = createBrowserRouter([
       },
       {
         path: 'courses/:id',
-        loader: ({params})=>fetch(`http://localhost:3000/courses/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:3000/courses/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         Component: Details
       },
       {
         path: 'courses/edit/:id',
-        loader: ({params})=>fetch(`http://localhost:3000/courses/edit/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:3000/courses/edit/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         Component: EditCourse
       },

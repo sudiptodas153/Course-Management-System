@@ -20,18 +20,20 @@ const PopularCourses = () => {
                 {
                     popularData.map(course =>
                         <div key={course._id}>
-                            <div className="p-5 mt-5 border border-gray-100 rounded-lg md:w-96 shadow-sm">
+                            <div className="p-5 mt-5 bg-emerald-50  border border-pink-300  rounded-lg md:w-96 shadow-sm">
 
-                                <img
-                                    className='md:w-96 md:h-52 rounded-lg'
-                                    src={course.image}
-                                    alt="" />
+                                <div className=' bg-white p-3 rounded-lg'>
+                                    <img
+                                        className='md:w-96 md:h-52 rounded-lg'
+                                        src={course.image}
+                                        alt="" />
+                                </div>
 
-                                <div className="mt-3">
+                                <div className="mt-3 ">
                                     <h2 className="text-xl md:text-2xl font-semibold">{course.title.length === 25 ? course.title : course.title.slice(0, 25) + '...'}</h2>
                                     <div className='flex justify-between my-4 text-gray-600'>
-                                        <p className='flex items-center font-semibold gap-1'>Enrolled:  <span className='flex items-center font-bold gap-1'><FaUserGroup />{course.enrolledCount}</span></p>
-                                        <p className='flex items-center gap-1'><FaRegCalendarAlt /> {course?.createdAt?.split("T")[0]}</p>
+                                        <p className='flex items-center font-semibold gap-1'><span className='flex items-center font-bold gap-1'><FaUserGroup size={20} />{course.enrolledCount}</span></p>
+                                        <p className='flex items-center gap-1'><FaRegCalendarAlt  size={20}/> {course?.createdAt?.split("T")[0]}</p>
                                     </div>
 
                                     <div className=" justify-end">
