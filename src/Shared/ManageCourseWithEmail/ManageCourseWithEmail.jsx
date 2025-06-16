@@ -31,6 +31,8 @@ const ManageCourseWithEmail = () => {
 
     // console.log(dataUser)
 
+    // DELETE
+
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -61,6 +63,10 @@ const ManageCourseWithEmail = () => {
         });
 
     }
+
+    // UPDATE
+
+   
 
 
     return (
@@ -94,7 +100,8 @@ const ManageCourseWithEmail = () => {
                                             <td className='md:text-lg font-bold'>{course.title}</td>
                                             <td>{course.description}</td>
                                             <td className='md:flex space-y-2 justify-end'>
-                                                <button className='btn md:mr-3 hover:bg-emerald-500 bg-emerald-300 text-white'>Edit</button>
+                                                <Link to={`/courses/edit/${course._id}`}>
+                                                    <button className='btn md:mr-3 hover:bg-emerald-500 bg-emerald-300 text-white'>Edit</button></Link>
                                                 <button onClick={() => handleDelete(course._id)} className='btn bg-red-600 text-white'>Delete</button>
                                             </td>
                                         </tr>

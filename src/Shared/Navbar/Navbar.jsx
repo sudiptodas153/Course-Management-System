@@ -1,5 +1,5 @@
 import React, { use } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router';
+import { Link, NavLink, } from 'react-router';
 import logo from '../../assets/lottie/logo.png'
 import { AuthContext } from '../../Context/AuthContext/AuthContext';
 import { signOut } from 'firebase/auth';
@@ -10,34 +10,35 @@ import './Navbar.css'
 const Navbar = () => {
 
     const { user, loading } = use(AuthContext)
-    const navigate = useNavigate()
+    if (loading) {
+        return <h2></h2>
+    }
     const links = <>
         <NavLink to={'/'}><li>Home</li></NavLink>
         <NavLink to={'/course'}><li> Courses</li></NavLink>
         <NavLink to={'/addCourse'}><li>Add Course</li></NavLink>
         <NavLink to={'/Manage-courses'}><li>Manage Courses</li></NavLink>
         <NavLink to={'/My-enrolled-courses'}><li>My Enrolled Courses</li></NavLink>
-       
+        {/* <NavLink to={'/My-enrolled-courses'}><li>My Enrolled Courses</li></NavLink> */}
+
 
     </>
 
-    if(loading) {
-        return <h2></h2>
-    }
+
 
 
     const signOutUser = () => {
         signOut(auth)
             .then(() => {
                 toast.success('Logout successful')
-                navigate('/')
+
             })
             .catch(() => { })
     }
 
     return (
         <div className=''>
-            
+
             <div className="navbar bg-base-100 shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">

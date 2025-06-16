@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router';
 
 const MyEnroll = () => {
-    const { user } = use(AuthContext)
+    const { user, } = use(AuthContext)
     const [dataUser, setDataUser] = useState([]);
     const [allCourses, setAllCourses] = useState([]);
     const [enrolledCourses, setEnrolledCourses] = useState([]);
@@ -12,6 +12,7 @@ const MyEnroll = () => {
     const [countSeat, setCountSeat] = useState(0);
     // const [dataId, setDataId] = useState('');
 
+   
 
     useEffect(() => {
         fetch('http://localhost:3000/enrolled-user')
@@ -68,14 +69,14 @@ const MyEnroll = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount) {
-                    toast.error('Enroll Cancel')
+                    toast.error('Enrollment Cancel')
 
                 }
                 setCount(count - 1)
                 setCountSeat(countSeat + 1)
             })
     }
-console.log(enrolledCourses)
+    // console.log(enrolledCourses)
     return (
         <div className='max-w-11/12 mx-auto my-10'>
 
@@ -86,6 +87,7 @@ console.log(enrolledCourses)
                         <h2 className='font-bold mb-3 md:mb-6 text-2xl md:text-4xl'>You have not enrolled in any courses yet.</h2>
                         <Link to={'/course'}> <button className='btn bg-emerald-400 text-white'>Browse Courses</button></Link>
                     </div>
+
 
                     :
                     <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">

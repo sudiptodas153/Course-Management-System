@@ -3,13 +3,16 @@ import layout from "../layout/layout";
 import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
-import AddCourse from "../Pages/AddCourse/AddCourse";
 import Course from "../Pages/Course/Course";
 import Details from "../Pages/Details/Details";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import ManageCourse from "../Pages/ManageCourse/ManageCourse";
 import MyEnroll from "../Pages/MyEnroll/MyEnroll";
 import ManageCourseWithEmail from "../Shared/ManageCourseWithEmail/ManageCourseWithEmail";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import AddCourse from "../Pages/AddCourse/AddCourse";
+import Loader from "../Shared/Loader/Loader";
+import EditCourse from "../Pages/EditCourse/EditCourse";
 
 
 
@@ -23,37 +26,51 @@ export const router = createBrowserRouter([
       {
         index: true,
         loader: () => fetch('http://localhost:3000/last-added'),
+        hydrateFallbackElement: <Loader></Loader>,
         Component: Home
       },
       {
         path: 'addCourse',
-        Component: AddCourse
+        hydrateFallbackElement: <Loader></Loader>,
+        element: <PrivateRoute><AddCourse></AddCourse></PrivateRoute>
       },
       
       {
         path:'Manage-courses',
-        Component: ManageCourse
+        hydrateFallbackElement: <Loader></Loader>,
+       element: <PrivateRoute><ManageCourse></ManageCourse></PrivateRoute>
       },
       {
         path:'My-enrolled-courses',
-        Component: MyEnroll
+        hydrateFallbackElement: <Loader></Loader>,
+       element: <PrivateRoute><MyEnroll></MyEnroll></PrivateRoute>
       },
       {
         path: 'course',
         loader: () => fetch('http://localhost:3000/course'),
+        hydrateFallbackElement: <Loader></Loader>,
         Component: Course
       },
       {
         path: 'courses/:id',
         loader: ({params})=>fetch(`http://localhost:3000/courses/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>,
         Component: Details
       },
       {
+        path: 'courses/edit/:id',
+        loader: ({params})=>fetch(`http://localhost:3000/courses/edit/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>,
+        Component: EditCourse
+      },
+      {
         path: "register",
+        hydrateFallbackElement: <Loader></Loader>,
         Component: Register
       },
       {
         path: "login",
+        hydrateFallbackElement: <Loader></Loader>,
         Component: Login
       }
     ]

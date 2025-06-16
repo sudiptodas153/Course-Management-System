@@ -31,7 +31,7 @@ const PopularCourses = () => {
                                     <h2 className="text-xl md:text-2xl font-semibold">{course.title.length === 25 ? course.title : course.title.slice(0, 25) + '...'}</h2>
                                     <div className='flex justify-between my-4 text-gray-600'>
                                         <p className='flex items-center font-semibold gap-1'>Enrolled:  <span className='flex items-center font-bold gap-1'><FaUserGroup />{course.enrolledCount}</span></p>
-                                        <p className='flex items-center gap-1'><FaRegCalendarAlt /> {course.createdAt.split("T")[0]}</p>
+                                        <p className='flex items-center gap-1'><FaRegCalendarAlt /> {course?.createdAt?.split("T")[0]}</p>
                                     </div>
 
                                     <div className=" justify-end">

@@ -21,7 +21,7 @@ const UpcomingCourse = () => {
                             <div className="flex items-center gap-3 md:gap-5 border border-gray-500 p-2 mt-4 md:p-5 bg-base-100 rounded-lg shadow-sm">
 
                                 <img
-                                    className='rounded-lg w-36 h-64 md:h-56'
+                                    className='rounded-lg w-36 md:w-44 h-64 md:h-56'
                                     src={soon.imageUrl}
                                     alt="" />
 

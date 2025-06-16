@@ -6,7 +6,7 @@ import { useLoaderData } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext/AuthContext';
 import { Armchair } from 'lucide-react';
 import Swal from 'sweetalert2';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { BiSolidError } from 'react-icons/bi';
 
 const Details = () => {
@@ -123,11 +123,14 @@ const Details = () => {
 
 
                 if (data.deletedCount) {
-                    toast.error('Enroll Cancel')
-
+                    Swal.fire({
+                        title: "Enrollment Cancel",
+                        icon: "error",
+                        draggable: true
+                    });
                 }
                 EnrollUser()
-               setCount(count - 1)
+                setCount(count - 1)
                 setCountSeat(countSeat + 1)
             })
     }
@@ -155,7 +158,7 @@ const Details = () => {
                 {
                     isEnrolled?.email === user?.email && isEnrolled?.id == _id ?
 
-                        <div className="tooltip w-full" data-tip="You are Enrolled in the Course">
+                        <div className="tooltip w-full" data-tip="You are already enrolled. Click to cancel enrollment.">
                             <button
                                 onClick={() => enrollHandleDelete(isEnrolled?._id)}
 
