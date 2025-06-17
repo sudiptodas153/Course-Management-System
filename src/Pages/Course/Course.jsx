@@ -16,7 +16,7 @@ const Course = () => {
                 {
                     data.map(course =>
                         <div key={course._id}>
-                            <div className="p-5 border mt-5 border-gray-100 rounded-lg MD:w-96 shadow-sm">
+                            <div className="p-5 hover:bg-emerald-100 border mt-5 border-gray-300 rounded-lg MD:w-96 shadow-sm">
 
                                 <img
                                     className='md:w-96 md:h-52 rounded-lg'
@@ -32,7 +32,7 @@ const Course = () => {
 
                                     <div className=" justify-end">
                                         <Link to={`/courses/${course._id}`}>
-                                            <button className="btn text-white text-lg font-semibold bg-emerald-300 w-full">Details</button>
+                                            <button className="btn text-white text-lg font-semibold hover:bg-green-500 bg-emerald-300 w-full">Details</button>
                                         </Link>
                                     </div>
                                 </div>

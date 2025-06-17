@@ -18,7 +18,7 @@ const Banner = () => {
     <div className="slider-container mt-9 px-1">
 
       <Slider {...settings}>
-        <div className="h-60 md:h-[420px] md:w-full text-center rounded-lg custom bg-black bg-opacity-100">
+        <div className="h-60 md:h-[420px] w-full text-center rounded-lg custom bg-black bg-opacity-100">
           <motion.div
             animate={{ x: [0, 50, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
@@ -28,7 +28,7 @@ const Banner = () => {
           </motion.div>
         </div>
 
-        <div className="h-60 md:h-[420px] md:w-full text-center rounded-lg custom2 bg-black bg-opacity-100">
+        <div className="h-60 md:h-[420px] w-full text-center rounded-lg custom2 bg-black bg-opacity-100">
           <motion.div
             animate={{ y: [0, 50, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
@@ -38,7 +38,7 @@ const Banner = () => {
           </motion.div>
         </div>
 
-        <div className="h-60 md:h-[420px] md:w-full text-center rounded-lg custom3  bg-black bg-opacity-100">
+        <div className="h-60 md:h-[420px] w-full text-center rounded-lg custom3  bg-black bg-opacity-100">
           <motion.div
             animate={{ x: [0, 50, 0], y: [0, 40, 0] }}
             transition={{ duration: 4, repeat: Infinity }}

@@ -163,7 +163,7 @@ const Details = () => {
                             <button
                                 onClick={() => enrollHandleDelete(isEnrolled?._id)}
 
-                                className="btn w-full mt-3 bg-emerald-300 text-lg text-white font-bold"
+                                className="btn w-full mt-3 hover:bg-emerald-500 bg-emerald-300 text-lg text-white font-bold"
                             >
                                 Enrolled
                             </button>
@@ -186,7 +186,7 @@ const Details = () => {
                                 <button
                                     onClick={enrollHandle}
                                     disabled={availableSeat === 0 && true}
-                                    className="btn w-full mt-3 bg-emerald-300 text-lg text-white font-bold"
+                                    className="btn w-full mt-3 hover:bg-emerald-400  bg-emerald-300 text-lg text-white font-bold"
                                 >
                                     {availableSeat === 0 ? 'No seats left' : 'Enroll'}
                                 </button>

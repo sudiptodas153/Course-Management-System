@@ -22,25 +22,26 @@ const PopularCourses = () => {
                 {
                     popularData.map(course =>
                         <div key={course._id}>
-                            <div className="p-5 mt-5 bg-emerald-50  border border-pink-300  rounded-lg md:w-96 shadow-sm">
+                            <div className="p-2 mt-5 border border-gray-200 bg-radial-[at_50%_75%] from-emerald-300 via-emerald-500 to-white rounded-lg md:w-96 shadow-xl">
 
-                                <div className=' bg-white p-3 rounded-lg'>
-                                    <img
-                                        className='md:w-96 md:h-52 rounded-lg'
-                                        src={course.image}
-                                        alt="" />
-                                </div>
 
                                 <div className="mt-3 ">
-                                    <h2 className="text-xl md:text-2xl font-semibold">{course.title.length === 25 ? course.title : course.title.slice(0, 25) + '...'}</h2>
-                                    <div className='flex justify-between my-4 text-gray-600'>
-                                        <p className='flex items-center font-semibold gap-1'><span className='flex items-center font-bold gap-1'><FaUserGroup size={20} />{course.enrolledCount}</span></p>
-                                        <p className='flex items-center gap-1'>Available: {course.availableSeat}</p>
+                                    <h2 className="text-xl px-4 md:text-2xl font-semibold">{course.title.length === 25 ? course.title : course.title.slice(0, 25) + '...'}</h2>
+                                    <div className=' p-3 rounded-lg'>
+                                        <img
+                                            className='md:w-96 md:h-52 rounded-lg'
+                                            src={course.image}
+                                            alt="" />
                                     </div>
 
-                                    <div className=" justify-end">
+                                    <div className='flex px-4 justify-between my-4 '>
+                                        <p className='flex items-center font-semibold gap-1'><span className='flex items-center font-bold gap-1'><FaUserGroup size={20} />{course.enrolledCount}</span></p>
+                                        <p className='flex font-bold items-center gap-1'>Available: {course.availableSeat}</p>
+                                    </div>
+
+                                    <div className="px-4">
                                         <Link to={`/courses/${course._id}`}>
-                                            <button className="btn text-white text-lg font-semibold bg-emerald-300 w-full">Details</button>
+                                            <button className="btn text-white text-lg font-semibold border-none hover:bg-blue-600 bg-blue-400 w-full">Details</button>
                                         </Link>
                                     </div>
                                 </div>
