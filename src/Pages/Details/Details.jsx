@@ -25,12 +25,12 @@ const Details = () => {
     const isEnrolled = enrollUser.find(item => item.email === user?.email && item.id === _id);
     const enrollCount = enrollUser.filter(enroll => enroll?.email === user?.email).length;
 
-    console.log(enrollCount)
+    // console.log(enrollCount)
 
     useEffect(() => {
         setCount(enrolledCount)
         setCountSeat(availableSeat)
-    }, [])
+    }, [enrolledCount, availableSeat])
 
     useEffect(() => {
         fetch('https://server-side-taupe-three.vercel.app/enrolled-user')
