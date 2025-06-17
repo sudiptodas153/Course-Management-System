@@ -1,12 +1,66 @@
-# React + Vite
+#  Course Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application where users can browse, enroll, and manage courses. Built using MERN stack, this project demonstrates practical implementation of JWT authentication, Firebase auth, protected routes, MongoDB operations, and modern frontend design.
 
-Currently, two official plugins are available:
+## Live Site
+🔗 [Live Website](https://course-management-system-4bb8d.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Purpose
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project is a complete Course Management Platform that allows:
+- Users to register, login (with email or social login), and enroll in courses.
+- Admin users to add, edit, delete and manage courses.
+- Each course has a seat limit, and users can enroll in a maximum of 3 courses at a time.
+- All interactions are protected with JWT and private routes.
+
+---
+
+## Features
+
+- JWT authentication using Firebase
+- Social Login with Google & GitHub
+- Fully responsive UI
+- Protected Routes with Redirect After Login
+- Enroll / Unenroll in courses (seat limit applied)
+- Role-based UI rendering (Login/Logout/Profile)
+- Custom 404 Page
+- Dynamic Page Title
+- Toast Notifications
+- Course Sorting (latest, most popular)
+- Add, Edit, Delete Courses (private routes)
+- View Enrolled Courses
+- Loading spinners
+- Eye toggle on password input
+- Framer-motion animations
+- react-slick carousel on homepage
+
+---
+
+## Technologies & Packages Used
+
+### Client:
+- React
+- React Router DOM
+- Firebase Auth
+- Axios
+- React Hook Form
+- react-slick
+- framer-motion
+- tailwindcss
+- shadcn-ui (or other Tailwind UI library)
+- React Hot Toast
+
+### Server:
+- Express.js
+- MongoDB
+- JSON Web Token (jsonwebtoken)
+- dotenv
+- cors
+- cookie-parser
+
+
+
+
+

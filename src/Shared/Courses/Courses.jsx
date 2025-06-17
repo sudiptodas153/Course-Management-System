@@ -8,7 +8,7 @@ const Courses = ({ data }) => {
 
     return (
         <div className='max-w-11/12 mx-auto mt-20 '>
-            <h2 className='text-center text-3xl md:text-4xl font-bold'>Courses</h2>
+            <h2 className='text-center text-3xl md:text-4xl font-bold'> Latest Courses</h2>
             <p className='text-center text-gray-500 mt-3 md:px-20'>Discover our latest course offerings designed to sharpen your skills and expand your knowledge.Stay updated with the newest additions — carefully curated for learners of all levels.</p>
             <div className='grid grid-cols-1 mt-5 md:mt-8 md:grid-cols-3 md:gap-5'>
                 {
