@@ -5,22 +5,31 @@ import { Link } from 'react-router';
 
 const ManageCourseWithEmail = () => {
     const { user } = use(AuthContext)
+    const accessToken = user.accessToken
 
     const [dataUser, setDataUser] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/course')
+        fetch('https://server-side-taupe-three.vercel.app/course', {
+            headers: {
+                authorization: `Bearer ${accessToken}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 const filteredItems = data.filter(item => item.addedBy === user?.email);
 
                 setDataUser(filteredItems)
             })
-    }, [setDataUser, user])
+    }, [setDataUser, user, accessToken])
 
 
     const reFetch = () => {
-        fetch('http://localhost:3000/course')
+        fetch('https://server-side-taupe-three.vercel.app/course', {
+            headers: {
+                authorization: `Bearer ${accessToken}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 const filteredItems = data.filter(item => item.addedBy === user?.email);
@@ -44,7 +53,7 @@ const ManageCourseWithEmail = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/courses/${id}`, {
+                fetch(`https://server-side-taupe-three.vercel.app/courses/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -66,7 +75,7 @@ const ManageCourseWithEmail = () => {
 
     // UPDATE
 
-   
+
 
 
     return (

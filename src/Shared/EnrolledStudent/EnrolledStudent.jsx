@@ -4,7 +4,7 @@ const EnrolledStudent = () => {
     const [enrollsUser, setEnrollsUser] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/enrolled-user')
+        fetch('https://server-side-taupe-three.vercel.app/enrolled-user')
             .then(res => res.json())
             .then(data => setEnrollsUser(data))
     }, [])
@@ -12,6 +12,7 @@ const EnrolledStudent = () => {
     return (
         <div className='max-w-11/12 mx-auto mt-10 mb-10'>
             <h2 className='text-center text-3xl md:text-4xl font-bold'>Recent Enrollments</h2>
+            <p  className='text-center text-gray-500 mt-3 md:px-20'>These are the most recently joined courses by learners just like you — stay inspired and keep exploring.</p>
             {
                 enrollsUser.length === 0 ?
 

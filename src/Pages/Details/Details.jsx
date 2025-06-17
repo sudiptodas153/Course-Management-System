@@ -33,13 +33,13 @@ const Details = () => {
     }, [])
 
     useEffect(() => {
-        fetch('http://localhost:3000/enrolled-user')
+        fetch('https://server-side-taupe-three.vercel.app/enrolled-user')
             .then(res => res.json())
             .then(data => setEnrollUser(data))
     }, [setEnrollUser])
 
     const EnrollUser = () => {
-        fetch('http://localhost:3000/enrolled-user')
+        fetch('https://server-side-taupe-three.vercel.app/enrolled-user')
             .then(res => res.json())
             .then(data => setEnrollUser(data));
 
@@ -88,7 +88,7 @@ const Details = () => {
             const formattedTime = times.toLocaleTimeString('en-US', timeCount)
             const time = formattedTime
             const enrollUser = { id, name, email, image, courseName, date, time };
-            fetch('http://localhost:3000/enrolled', {
+            fetch('https://server-side-taupe-three.vercel.app/enrolled', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -115,7 +115,7 @@ const Details = () => {
 
     const enrollHandleDelete = (_id) => {
 
-        fetch(`http://localhost:3000/enrolled-user/${_id}`, {
+        fetch(`https://server-side-taupe-three.vercel.app/enrolled-user/${_id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -138,6 +138,7 @@ const Details = () => {
 
     return (
         <div className='max-w-11/12 my-10 border border-gray-300 p-5 rounded-lg mx-auto'>
+            <title>Course Details</title>
             <div className='md:w-3/4 md:mx-auto'>
                 <img className='h-96 w-full rounded-lg mx-auto' src={image} alt="" />
                 <h2 className='text-2xl md:text-4xl mt-3 font-bold'>{title}</h2>

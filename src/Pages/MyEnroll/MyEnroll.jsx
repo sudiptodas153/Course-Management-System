@@ -12,10 +12,10 @@ const MyEnroll = () => {
     const [countSeat, setCountSeat] = useState(0);
     // const [dataId, setDataId] = useState('');
 
-   
+
 
     useEffect(() => {
-        fetch('http://localhost:3000/enrolled-user')
+        fetch('https://server-side-taupe-three.vercel.app/enrolled-user')
             .then(res => res.json())
             .then(data => {
                 const filteredItems = data.filter(item => item.email === user?.email);
@@ -25,7 +25,7 @@ const MyEnroll = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:3000/course')
+        fetch('https://server-side-taupe-three.vercel.app/course')
             .then(res => res.json())
             .then(data => {
                 setAllCourses(data);
@@ -63,7 +63,7 @@ const MyEnroll = () => {
 
         setEnrolledCourses(prevCourses => prevCourses.filter(course => course._id !== _id));
 
-        fetch(`http://localhost:3000/enrolled-user/enroll/${_id}`, {
+        fetch(`https://server-side-taupe-three.vercel.app/enrolled-user/enroll/${_id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
@@ -79,7 +79,7 @@ const MyEnroll = () => {
     // console.log(enrolledCourses)
     return (
         <div className='max-w-11/12 mx-auto my-10'>
-
+            <title>My Enroll</title>
             {
                 enrolledCourses.length === 0 ?
 

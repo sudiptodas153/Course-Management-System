@@ -23,8 +23,8 @@ const Banner = () => {
             animate={{ x: [0, 50, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
             className="md:mt-40 mt-14 md:px-2  space-y-3 text-white">
-            <h2 className="md:text-5xl text-2xl font-bold">Master New Skills Online</h2>
-            <p className="text-gray-400 text-sm">Join our professional courses and unlock your potential from anywhere in the world.</p>
+            <h2 className="md:text-5xl text-xl font-bold">Master New Skills Online</h2>
+            <p className="text-gray-400 text-xs">Join our professional courses and unlock your potential from anywhere in the world.</p>
           </motion.div>
         </div>
 
@@ -33,8 +33,8 @@ const Banner = () => {
             animate={{ y: [0, 50, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
             className="md:mt-40 mt-14 md:px-2 space-y-3 text-white">
-            <h2 className="md:text-5xl text-2xl font-bold">Build Your Career with Certified Courses</h2>
-            <p className="text-gray-400 text-sm">Enroll in industry-relevant courses and get certified by expert instructors.</p>
+            <h2 className="md:text-5xl text-xl font-bold">Build Your Career with Certified Courses</h2>
+            <p className="text-gray-400 text-xs">Enroll in industry-relevant courses and get certified by expert instructors.</p>
           </motion.div>
         </div>
 
@@ -43,8 +43,8 @@ const Banner = () => {
             animate={{ x: [0, 50, 0], y: [0, 40, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
             className="md:mt-40 mt-14 md:px-2  space-y-3 text-white">
-            <h2 className="md:text-5xl text-2xl font-bold">Flexible Learning, Real Results</h2>
-            <p className="text-gray-400 text-sm">Learn at your own pace, track your progress, and achieve your goals.</p>
+            <h2 className="md:text-5xl text-xl font-bold">Flexible Learning, Real Results</h2>
+            <p className="text-gray-400 text-xs">Learn at your own pace, track your progress, and achieve your goals.</p>
           </motion.div>
         </div>
 

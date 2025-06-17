@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/last-added'),
+        loader: () => fetch('https://server-side-taupe-three.vercel.app/last-added'),
         hydrateFallbackElement: <Loader></Loader>,
         Component: Home
       },
@@ -53,19 +53,19 @@ export const router = createBrowserRouter([
       },
       {
         path: 'course',
-        loader: () => fetch('http://localhost:3000/course'),
+        loader: () => fetch('https://server-side-taupe-three.vercel.app/course'),
         hydrateFallbackElement: <Loader></Loader>,
         Component: Course
       },
       {
         path: 'courses/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/courses/${params.id}`),
+        loader: ({ params }) => fetch(`https://server-side-taupe-three.vercel.app/courses/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         Component: Details
       },
       {
         path: 'courses/edit/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/courses/edit/${params.id}`),
+        loader: ({ params }) => fetch(`https://server-side-taupe-three.vercel.app/courses/edit/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         Component: EditCourse
       },

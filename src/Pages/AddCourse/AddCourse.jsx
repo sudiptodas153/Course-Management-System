@@ -9,19 +9,19 @@ const AddCourse = () => {
         const form = e.target;
         const formData = new FormData(form);
         const courseData = Object.fromEntries(formData.entries());
-        courseData.addedBy = user.email
+        courseData.email = user.email
         courseData.addedByName = user.displayName
-         const formDate = date => {
-                const dates = { day: '2-digit', month: 'short', year: 'numeric' }
-                return date.toLocaleDateString('en-US', dates);
-            }
+        const formDate = date => {
+            const dates = { day: '2-digit', month: 'short', year: 'numeric' }
+            return date.toLocaleDateString('en-US', dates);
+        }
 
-            const today = new Date();
-            const formattedDate = formDate(today);
-           
-            courseData.createdAt = formattedDate
+        const today = new Date();
+        const formattedDate = formDate(today);
+
+        courseData.createdAt = formattedDate
         // console.log(courseData)
-        fetch('http://localhost:3000/course', {
+        fetch('https://server-side-taupe-three.vercel.app/course', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -43,7 +43,7 @@ const AddCourse = () => {
 
     return (
         <div className='container mx-auto my-10 px-2'>
-
+            <title>Add Course</title>
             <form onSubmit={handleForm} className='custom9 border border-gray-200 rounded-lg p-10'>
                 <h2 className='text-center font-bold text-white text-3xl mb-5'>Add Course</h2>
                 <fieldset className="fieldset">

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from '../AuthContext/AuthContext';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, FacebookAuthProvider, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, FacebookAuthProvider, signInWithPopup, GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
+import axios from 'axios';
+// import axios from 'axios';
 
 
 
@@ -9,9 +11,8 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const provider = new FacebookAuthProvider();
     const provider2 = new GoogleAuthProvider();
-
+    const provider = new GithubAuthProvider();
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
@@ -23,17 +24,18 @@ const AuthProvider = ({ children }) => {
     }
 
     const profileUpdate = (userDetails) => {
-        
+
         return updateProfile(auth.currentUser, userDetails)
     }
 
-    const logInByGoogle = () =>{
+    const logInByGoogle = () => {
         return signInWithPopup(auth, provider2)
     }
-
-    const logInByFacebook = () =>{
+    const logInByGithub = () => {
         return signInWithPopup(auth, provider)
     }
+
+
 
 
 
@@ -41,6 +43,16 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setLoading(false)
             setUser(currentUser)
+            if (currentUser?.email){
+                const userData = {email: currentUser.email}
+                axios.post('https://server-side-taupe-three.vercel.app/jwt',userData)
+                .then(res =>{
+                    console.log(res)
+                })
+                .catch(err =>{
+                    console.log(err)
+                })
+            }
         })
         return () => {
             unSubscribe();
@@ -56,7 +68,7 @@ const AuthProvider = ({ children }) => {
         loading,
         setLoading,
         setUser,
-        logInByFacebook,
+        logInByGithub,
         logInByGoogle,
 
     }

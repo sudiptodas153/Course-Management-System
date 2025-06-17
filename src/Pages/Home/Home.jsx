@@ -12,6 +12,7 @@ const Home = () => {
 
     return (
         <div className=''>
+            <title>Home</title>
             <Banner></Banner>
             <Courses data={data}></Courses>
             <PopularCourses data={data}></PopularCourses>

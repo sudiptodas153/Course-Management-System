@@ -13,10 +13,10 @@ const EditCourse = () => {
         const form = e.target;
         const formData = new FormData(form);
         const courseData = Object.fromEntries(formData.entries());
-       
-       
+
+
         // console.log(courseData)
-        fetch(`http://localhost:3000/courses/edit/${data._id}`, {
+        fetch(`https://server-side-taupe-three.vercel.app/courses/edit/${data._id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
@@ -26,21 +26,21 @@ const EditCourse = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    
+
                     Swal.fire({
                         title: "Your Course update Successful",
                         icon: "success",
                         draggable: true
                     });
-                    
+
                 }
             })
-          
+
     }
 
     return (
         <div className='container mx-auto my-10 px-2'>
-
+            <title>Edit Course</title>
             <form onSubmit={handleForm} className='border bg-emerald-100 border-gray-200 rounded-lg p-10'>
                 <h2 className='text-center font-bold  text-3xl mb-5'>Update Course</h2>
                 <fieldset className="fieldset">
@@ -73,11 +73,11 @@ const EditCourse = () => {
                     </fieldset>
                     <fieldset className="fieldset flex-1 ">
                         <legend className="fieldset-legend ">Enrolled</legend>
-                        <input type="number" defaultValue={data.enrolledCount}  name='enrolledCount' className="input w-full border border-gray-400" placeholder="0" />
+                        <input type="number" defaultValue={data.enrolledCount} name='enrolledCount' className="input w-full border border-gray-400" placeholder="0" />
                     </fieldset>
                     <fieldset className="fieldset flex-1">
                         <legend className="fieldset-legend ">Available Seat</legend>
-                        <input type="number"  name='availableSeat' defaultValue={data.availableSeat}  className="input w-full border border-gray-400" placeholder="0" />
+                        <input type="number" name='availableSeat' defaultValue={data.availableSeat} className="input w-full border border-gray-400" placeholder="0" />
                     </fieldset>
                 </div>
                 <button className='btn w-full mt-4  bg-emerald-300'>Update Course</button>
