@@ -43,15 +43,18 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setLoading(false)
             setUser(currentUser)
-            if (currentUser?.email){
-                const userData = {email: currentUser.email}
-                axios.post('https://server-side-taupe-three.vercel.app/jwt',userData)
-                .then(res =>{
-                    console.log(res)
+            if (currentUser?.email) {
+                const userData = { email: currentUser.email }
+                axios.post('https://server-side-taupe-three.vercel.app/jwt', userData, {
+                    withCredentials: true
                 })
-                .catch(err =>{
-                    console.log(err)
-                })
+
+                    .then(res => {
+                        console.log(res)
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
             }
         })
         return () => {
