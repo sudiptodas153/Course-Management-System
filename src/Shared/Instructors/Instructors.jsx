@@ -47,7 +47,7 @@ const Instructors = () => {
                                     <div className='text-center '>
                                         <div className='border md:w-26 border-emerald-500 rounded-full p-1'>
                                             <img
-                                                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                                                src={ins.photo}
                                                 className="w-20 h-[66px] md:h-24 md:w-24  rounded-full shadow-2xl"
                                             />
                                         </div>

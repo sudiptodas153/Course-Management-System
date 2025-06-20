@@ -97,7 +97,8 @@ const Details = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.insertedId) {
+                    console.log(data)
+                    if (data) {
                         Swal.fire({
                             title: "Enroll successful",
                             icon: "success",

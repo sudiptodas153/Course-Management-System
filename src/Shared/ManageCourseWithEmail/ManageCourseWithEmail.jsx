@@ -10,11 +10,7 @@ const ManageCourseWithEmail = () => {
     const [dataUser, setDataUser] = useState([])
 
     useEffect(() => {
-        fetch('https://server-side-taupe-three.vercel.app/course', {
-            headers: {
-                authorization: `Bearer ${accessToken}`
-            }
-        })
+        fetch('https://server-side-taupe-three.vercel.app/course')
             .then(res => res.json())
             .then(data => {
                 const filteredItems = data.filter(item => item.addedBy === user?.email);
@@ -25,11 +21,7 @@ const ManageCourseWithEmail = () => {
 
 
     const reFetch = () => {
-        fetch('https://server-side-taupe-three.vercel.app/course', {
-            headers: {
-                authorization: `Bearer ${accessToken}`
-            }
-        })
+        fetch('https://server-side-taupe-three.vercel.app/course')
             .then(res => res.json())
             .then(data => {
                 const filteredItems = data.filter(item => item.addedBy === user?.email);
@@ -75,7 +67,7 @@ const ManageCourseWithEmail = () => {
 
     // UPDATE
 
-
+console.log(dataUser)
 
 
     return (

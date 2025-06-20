@@ -9,7 +9,11 @@ const AddCourse = () => {
         const form = e.target;
         const formData = new FormData(form);
         const courseData = Object.fromEntries(formData.entries());
-        courseData.email = user.email
+        courseData.availableSeat = parseInt(courseData.availableSeat);
+        courseData.enrolledCount = parseInt(courseData.enrolledCount);
+        courseData.totalSeats = parseInt(courseData.totalSeats);
+        courseData.duration = parseInt(courseData.duration);
+        courseData.addedBy = user.email
         courseData.addedByName = user.displayName
         const formDate = date => {
             const dates = { day: '2-digit', month: 'short', year: 'numeric' }

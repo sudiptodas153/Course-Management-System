@@ -7,7 +7,7 @@ const Course = () => {
 
 
     return (
-        <div className='max-w-11/12 mx-auto mt-10 '>
+        <div className='max-w-11/12 mx-auto mt-10 mb-10'>
             <title>Courses</title>
             <h2 className='text-center text-3xl md:text-4xl font-bold'>All Courses</h2>
             <p className='text-center text-gray-500 mt-3 md:px-20'>Explore a variety of expertly designed courses to build your skills and boost your career.
