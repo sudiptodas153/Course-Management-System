@@ -84,7 +84,7 @@ This project is a complete Course Management Platform that allows:
 
 2. Navigate to the project folder:
    ```bash
-   cd Course-Management-System-repo
+   cd Course-Management-System
    
 3. Install dependencies:
    ```bash
