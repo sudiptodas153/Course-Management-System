@@ -81,18 +81,18 @@ This project is a complete Course Management Platform that allows:
 1. Clone the repo:
    ```bash
    git clone https://github.com/yourusername/frontend-repo.git
-   
-2. Navigate into the project:
+
+2. Navigate to the project folder:
    ```bash
- cd Course-Management-System-repo
+   cd Course-Management-System-repo
    
 3. Install dependencies:
    ```bash
-npm install
+   npm install
    
-4. Run the development server:
+4. Start the development server:
    ```bash
-npm run dev
+   npm run dev
 
 
 
