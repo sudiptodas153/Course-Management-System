@@ -78,21 +78,44 @@ This project is a complete Course Management Platform that allows:
 
 ### Frontend:
 
-1. Clone the frontend repo:
+1. Clone the repo:
    ```bash
    git clone https://github.com/yourusername/frontend-repo.git
    
 2. Navigate into the project:
    ```bash
-  https://github.com/yourusername/frontend-repo.git
+ cd Course-Management-System-repo
    
 3. Install dependencies:
    ```bash
-   git clone https://github.com/yourusername/frontend-repo.git
+npm install
    
 4. Run the development server:
    ```bash
-   git clone https://github.com/yourusername/frontend-repo.git
+npm run dev
+
+
+
+## Key Endpoints
+
+| Method | Route                        | Description                     |
+|--------|-----------------------------|---------------------------------|
+| POST   | `/jwt`                      | Generate JWT from Firebase user |
+| GET    | `/users`                    | Get all users (admin only)      |
+| PATCH  | `/users/:id`                | Update user role                |
+| POST   | `/courses`                  | Add a new course (instructor)   |
+| GET    | `/courses`                  | Get all available courses       |
+| GET    | `/courses/:id`              | Get single course by ID         |
+| DELETE | `/courses/:id`              | Delete course (admin/instructor)|
+| PUT    | `/courses/:id`              | Update course details           |
+
+*(Add or update based on your actual API structure.)*
+
+---
+
+## Environment Variables
+
+Create a `.env` file in the root of your project and add:
 
 
 
