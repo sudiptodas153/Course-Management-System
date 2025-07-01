@@ -5,6 +5,7 @@ import { useLoaderData } from 'react-router';
 import PopularCourses from '../../Shared/PopularCourses/PopularCourses';
 import EnrolledStudent from '../../Shared/EnrolledStudent/EnrolledStudent';
 import UpcomingCourse from '../../Shared/UpcomingCourse/UpcomingCourse';
+import Status from '../../Shared/Status/Status';
 
 const Home = () => {
     const data = useLoaderData();
@@ -18,6 +19,7 @@ const Home = () => {
             <Courses data={data}></Courses>
             <PopularCourses data={data}></PopularCourses>
             <UpcomingCourse></UpcomingCourse>
+            <Status></Status>
             <EnrolledStudent></EnrolledStudent>
         </div>
     );

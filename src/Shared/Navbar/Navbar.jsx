@@ -15,7 +15,11 @@ const Navbar = () => {
     }
     const links = <>
         <NavLink to={'/'}><li>Home</li></NavLink>
-        <NavLink to={'/course'}><li> Courses</li></NavLink>
+       
+       {
+        user && 
+         <NavLink to={'/course'}><li> Courses</li></NavLink>
+       }
 
         {
             user &&
