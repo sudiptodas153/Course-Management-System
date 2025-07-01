@@ -10,9 +10,9 @@ const EnrolledStudent = () => {
     }, [])
 
     return (
-        <div className='max-w-11/12 mx-auto mt-10 mb-10'>
+        <div className='max-w-11/12 mx-auto'>
             <h2 className='text-center text-3xl md:text-4xl font-bold'>Recent Enrollments</h2>
-            <p  className='text-center text-gray-500 mt-3 md:px-20'>These are the most recently joined courses by learners just like you — stay inspired and keep exploring.</p>
+            <p  className='text-center dark:text-white text-gray-500 mt-3 md:px-20'>These are the most recently joined courses by learners just like you — stay inspired and keep exploring.</p>
             {
                 enrollsUser.length === 0 ?
 
@@ -25,7 +25,7 @@ const EnrolledStudent = () => {
                     <div className="overflow-x-auto rounded-box border border-gray-200 mt-5">
                         <table className="table">
                             {/* head */}
-                            <thead  className='bg-cyan-400 text-black'>
+                            <thead  className='bg-emerald-400 text-black'>
                                 <tr >
 
                                     <th>Student Name</th>

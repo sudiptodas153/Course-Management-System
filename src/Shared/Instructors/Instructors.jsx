@@ -18,9 +18,9 @@ const Instructors = () => {
 
     return (
         <div>{loading ? <Loader></Loader> :
-            <div className='my-10'>
+            <div className=''>
                 <h2 className='text-center text-3xl md:text-4xl font-bold mb-5'>Our Instructors</h2>
-                <p className='text-center text-gray-500 mt-3 md:px-20'>Meet our experienced and passionate instructors, dedicated to your success.They bring real-world expertise and a love for teaching to every course they create.</p>
+                <p className='text-center dark:text-white text-gray-500 mt-3 md:px-20'>Meet our experienced and passionate instructors, dedicated to your success.They bring real-world expertise and a love for teaching to every course they create.</p>
                 <div className='grid grid-cols-1 md:grid-cols-2 md:gap-5 '>
                     {
                         insData.map(ins => <div key={ins._id}>
@@ -30,11 +30,11 @@ const Instructors = () => {
                                     <div className='w-80'>
                                         <h1 className="text-3xl font-bold">{ins.name}</h1>
                                         <p className="py-2 pr-10 text-gray-400">{ins.bio}</p>
-                                        <p className='font-bold text-[16px]'>Designation: <span className='text-gray-600 text-sm font-semibold'>{ins.designation}</span></p>
-                                        <p className='font-bold text-[16px]'>Experience: <span className='text-gray-600 text-sm font-semibold'>{ins.experience}</span></p>
+                                        <p className='font-bold text-[16px]'>Designation: <span className='dark:text-white text-gray-600 text-sm'>{ins.designation}</span></p>
+                                        <p className='font-bold text-[16px]'>Experience: <span className='dark:text-white text-gray-600 text-sm font-semibold'>{ins.experience}</span></p>
                                         <div>
                                             <h2 className='font-bold mt-1'>CoursesTaught:</h2>
-                                            <ul className='list-disc list-inside ml-5 text-sm space-y-1 text-gray-600'>
+                                            <ul className='list-disc list-inside ml-5 text-sm space-y-1 dark:text-white text-gray-600'>
                                                 {
                                                     ins.coursesTaught.map(taught => <li key={taught}>
                                                         {taught}

@@ -15,9 +15,9 @@ const Resources = () => {
     return (
         <div>
             {loading ? <h2></h2> :
-                <div className='max-w-11/12 mx-auto my-10'>
+                <div className='max-w-11/12 mx-auto'>
                     <h2 className='text-center text-3xl md:text-4xl mb-5 font-bold'>Resources</h2>
-                    <p className='text-center text-gray-500 mt-3 md:px-20'>Access valuable learning materials and tools curated to support your course journey.From tutorials to guides, find everything you need to succeed right here.</p>
+                    <p className='text-center dark:text-white text-gray-500 mt-3 md:px-20'>Access valuable learning materials and tools curated to support your course journey.From tutorials to guides, find everything you need to succeed right here.</p>
                     <div className='grid grid-cols-1 md:grid-cols-3 md:gap-5'>
                         {
                             resData.map(res =>

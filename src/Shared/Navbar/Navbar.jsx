@@ -16,9 +16,21 @@ const Navbar = () => {
     const links = <>
         <NavLink to={'/'}><li>Home</li></NavLink>
         <NavLink to={'/course'}><li> Courses</li></NavLink>
-        <NavLink to={'/addCourse'}><li>Add Course</li></NavLink>
-        <NavLink to={'/Manage-courses'}><li>Manage Courses</li></NavLink>
-        <NavLink to={'/My-enrolled-courses'}><li>My Enrolled Courses</li></NavLink>
+
+        {
+            user &&
+            <NavLink to={'/addCourse'}><li>Add Course</li></NavLink>
+        }
+        {
+            user &&
+
+            <NavLink to={'/Manage-courses'}><li>Manage Courses</li></NavLink>
+        }
+        {
+            user &&
+            <NavLink to={'/My-enrolled-courses'}><li>My Enrolled Courses</li></NavLink>
+        }
+
         <NavLink to={'/community'}><li>Community</li></NavLink>
 
 
@@ -39,7 +51,7 @@ const Navbar = () => {
     return (
         <div className=''>
 
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className={`navbar dark:bg-emerald-900 bg-emerald-50 border-b border-emerald-100 shadow-sm`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -68,7 +80,7 @@ const Navbar = () => {
                             <div>
                                 <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />
                             </div>
-                            <button onClick={signOutUser} className='text-emerald-400  font-bold border btn border-emerald-400'>Logout</button>
+                            <button onClick={signOutUser} className='text-emerald-400  font-bold border btn dark:text-white dark:bg-emerald-400 border-emerald-400'>Logout</button>
                         </div>
                         :
 

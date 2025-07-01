@@ -1,9 +1,12 @@
-import React, { use } from 'react';
+import React, { use, useEffect } from 'react';
 import './add.css'
 import { AuthContext } from '../../Context/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 const AddCourse = () => {
     const { user } = use(AuthContext)
+
+useEffect(() => { window.scrollTo(0, 0) }, [])
+
     const handleForm = e => {
         e.preventDefault()
         const form = e.target;
@@ -68,7 +71,7 @@ const AddCourse = () => {
                         <input type="text" name='instructor' className="input w-full border border-gray-400" placeholder="Instructor name.." />
                     </fieldset>
                     <fieldset className="fieldset flex-1">
-                        <legend className="fieldset-legend text-white">Duration <span className='text-gray-500'>(Days)</span></legend>
+                        <legend className="fieldset-legend text-white">Duration<span className='text-gray-500'>(Days)</span></legend>
                         <input type="number" name='duration' className="input w-full border border-gray-400" placeholder="0" />
                     </fieldset>
                 </div>

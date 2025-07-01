@@ -2,10 +2,12 @@
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../../Context/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
+import { useEffect } from 'react';
 const EditCourse = () => {
     const data = useLoaderData()
     // console.log(data)
 
+useEffect(() => { window.scrollTo(0, 0) }, [])
 
     // const { user } = use(AuthContext)
     const handleForm = e => {

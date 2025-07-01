@@ -14,22 +14,22 @@ const PopularCourses = () => {
     }, [])
 
     return (
-        <div className='max-w-11/12 mx-auto  mt-20'>
+        <div className='max-w-11/12 mx-auto'>
             <h2 className='text-center text-3xl md:text-4xl font-bold'>Popular Courses</h2>
-            <p className='text-center text-gray-500 mt-3 md:px-20'>Check out the most enrolled and top-rated courses by our learners.
+            <p className='text-center dark:text-white text-gray-500 mt-3 md:px-20'>Check out the most enrolled and top-rated courses by our learners.
                 These trending courses are trusted by many — join the crowd and start learning today!</p>
-            <div className='grid grid-cols-1 md:mt-8 md:grid-cols-3 md:gap-5'>
+            <div className='grid grid-cols-1 md:grid-cols-4 md:gap-3'>
                 {
                     popularData.map(course =>
                         <div key={course._id}>
-                            <div className="p-2 mt-5 border border-gray-200 bg-radial-[at_50%_75%] from-emerald-300 via-emerald-500 to-white rounded-lg md:w-96 shadow-xl">
+                            <div className="p-2 mt-5 border border-gray-200 rounded-lg shadow-xl">
 
 
                                 <div className="mt-3 ">
-                                    <h2 className="text-xl px-4 md:text-2xl font-semibold">{course.title.length === 25 ? course.title : course.title.slice(0, 25) + '...'}</h2>
+                                    <h2 className="text-xl px-4 md:text-2xl font-semibold">{course.title.length === 15 ? course.title : course.title.slice(0, 15) + '...'}</h2>
                                     <div className=' p-3 rounded-lg'>
                                         <img
-                                            className='md:w-96 md:h-52 rounded-lg'
+                                            className='md:w-96 border border-gray-300 md:h-52 rounded-lg'
                                             src={course.image}
                                             alt="" />
                                     </div>
@@ -41,7 +41,7 @@ const PopularCourses = () => {
 
                                     <div className="px-4">
                                         <Link to={`/courses/${course._id}`}>
-                                            <button className="btn text-white text-lg font-semibold border-none hover:bg-blue-600 bg-blue-400 w-full">Details</button>
+                                            <button className="btn text-white text-lg font-semibold border-none hover:bg-emerald-600 bg-emerald-400 w-full">Details</button>
                                         </Link>
                                     </div>
                                 </div>

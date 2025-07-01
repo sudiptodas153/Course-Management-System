@@ -53,7 +53,7 @@ const MyEnroll = () => {
 
     }, [enrolledCourses])
 
-
+useEffect(() => { window.scrollTo(0, 0) }, [])
     // console.log(dataId)
     // console.log(dataUser)
 
@@ -94,7 +94,7 @@ const MyEnroll = () => {
                         <table className="table">
 
                             <thead>
-                                <tr className='bg-rose-500 text-white'>
+                                <tr className='bg-emerald-500 text-white'>
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th></th>

@@ -106,9 +106,9 @@ const Login = () => {
                                     </fieldset>
                                     <fieldset className="relative fieldset">
                                         <legend className="fieldset-legend">Enter your Password</legend>
-                                        <input name='password' required type={`${eye ? 'text' : 'password'}`} className="input md:w-72 " placeholder="Type your password" />
+                                        <input name='password' required type={`${eye ? 'text' : 'password'}`} className="input !outline-none md:w-72 " placeholder="Type your password" />
                                         <p>Forget password?</p>
-                                        <div onClick={() => setEye(!eye)} className='cursor-pointer absolute mt-4 ml-64'>
+                                        <div onClick={() => setEye(!eye)} className='cursor-pointer z-10 absolute mt-4 ml-64'>
                                             {
                                                 eye ? <AiOutlineEyeInvisible size={20} /> : <AiOutlineEye size={20} />
                                             }

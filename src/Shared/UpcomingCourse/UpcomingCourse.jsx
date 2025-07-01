@@ -12,9 +12,9 @@ const UpcomingCourse = () => {
     }, [])
     // console.log(newCourses)
     return (
-        <div className='my-10 md:mt-20 max-w-11/12 mx-auto'>
+        <div className=' max-w-11/12 mx-auto'>
             <h2 className='text-center text-3xl md:text-4xl font-bold'>UpComing Courses</h2>
-            <p className='text-center text-gray-500 mt-3 md:px-20'>Stay ahead with our upcoming courses – carefully crafted to match future trends and skills in demand.Get ready to explore what’s coming next and be the first to enroll!</p>
+            <p className='text-center dark:text-white text-gray-500 mt-3 md:px-20'>Stay ahead with our upcoming courses – carefully crafted to match future trends and skills in demand.Get ready to explore what’s coming next and be the first to enroll!</p>
             <div className='grid grid-cols-1 md:grid-cols-2 md:gap-5 mt-10'>
                 {
                     newCourses.map(soon =>

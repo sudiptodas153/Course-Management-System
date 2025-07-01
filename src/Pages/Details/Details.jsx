@@ -27,6 +27,8 @@ const Details = () => {
 
     // console.log(enrollCount)
 
+    useEffect(() => { window.scrollTo(0, 0) }, [])
+
     useEffect(() => {
         setCount(enrolledCount)
         setCountSeat(availableSeat)

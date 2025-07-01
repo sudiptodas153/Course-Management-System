@@ -8,7 +8,7 @@ const Footer = () => {
     const { user } = use(AuthContext)
     return (
         <div>
-            <footer className="footer bg-emerald-100 sm:footer-horizontal text-base-content p-10">
+            <footer className="footer md:h-60 dark:bg-emerald-700 bg-emerald-100 sm:footer-horizontal text-base-content p-10">
                 <aside>
                     <img className='w-28' src={image} alt="" />
                     <p>Crafting Skills that Matter. Shaping Futures with Purpose</p>
