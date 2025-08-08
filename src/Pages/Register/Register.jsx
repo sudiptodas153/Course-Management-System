@@ -38,7 +38,7 @@ const Register = () => {
         const pass2 = /.*[A-Z].*/
         const pass3 = /.*[a-z].*/
         const pass4 = /.*[0-9].*/
-        const pass5 = /[!@#$%^&*(),?":{}|<>]/
+        const pass5 = /[!@#$%^&*(),?":{}|<>]/ 
 
         setPassCheck(false)
         setPassCheck2(false)

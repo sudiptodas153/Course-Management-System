@@ -16,10 +16,9 @@ const Navbar = () => {
     const links = <>
         <NavLink to={'/'}><li>Home</li></NavLink>
        
-       {
-        user && 
+       
          <NavLink to={'/course'}><li> Courses</li></NavLink>
-       }
+      
 
         {
             user &&
@@ -55,7 +54,7 @@ const Navbar = () => {
     return (
         <div className=''>
 
-            <div className={`navbar dark:bg-emerald-900 bg-emerald-50 border-b border-emerald-100 shadow-sm`}>
+            <div className={`navbar md:px-10 dark:bg-emerald-900 bg-emerald-50 border-b border-emerald-100 shadow-sm`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">

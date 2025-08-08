@@ -41,7 +41,7 @@ const PopularCourses = () => {
 
                                     <div className="px-4">
                                         <Link to={`/courses/${course._id}`}>
-                                            <button className="btn text-white text-lg font-semibold border-none hover:bg-emerald-600 bg-emerald-400 w-full">Details</button>
+                                            <button className="btn border-1 text-emerald-400 border-emerald-400 hover:text-white text-lg font-semibold hover:border-none hover:bg-emerald-400 w-full">Details</button>
                                         </Link>
                                     </div>
                                 </div>
