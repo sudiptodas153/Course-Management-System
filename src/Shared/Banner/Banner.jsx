@@ -15,7 +15,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="slider-container overflow-hidden mt-9 md:px-10 px-1">
+    <div className="slider-container overflow-hidden mt-9 px-3 md:px-10 ">
 
       <Slider {...settings}>
         <div className="h-60 md:h-[420px] w-full text-center rounded-lg custom bg-black bg-opacity-100">
