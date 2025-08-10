@@ -17,7 +17,7 @@ const layout = () => {
     }
     return (
         <div className=''>
-            <div className='sticky top-0 z-50'>
+            <div className='sticky top-0 z-60'>
                 <Navbar></Navbar>
             </div>
             <Outlet></Outlet>
