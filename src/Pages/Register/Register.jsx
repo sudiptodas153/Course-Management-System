@@ -193,7 +193,7 @@ const Register = () => {
                                         </div>
 
                                         <div>
-                                            {passCheck && <p className='text-xs text-red-500'>Password must be at-least 8 character.</p>}
+                                            {passCheck && <p className='text-xs text-red-600'>Password must be at-least 8 character.</p>}
                                             {passCheck2 && <p className='text-xs text-red-500'>Password must have 1 uppercase.</p>}
                                             {passCheck3 && <p className='text-xs text-red-500'>Password must have 1 lowercase.</p>}
                                             {passCheck4 && <p className='text-xs text-red-500'>Password must have 1 number.</p>}
